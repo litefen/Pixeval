@@ -1,0 +1,9 @@
+﻿[*.cs]
+
+# IDE0008: 使用显式类型
+csharp_style_var_for_built_in_types = true
+csharp_style_var_when_type_is_apparent=true:silent
+
+# IDE0058: 永远不会使用表达式值
+dotnet_diagnostic.IDE0058.severity = none
+csharp_style_var_elsewhere=true:silent
