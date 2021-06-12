@@ -12,14 +12,14 @@ namespace Pixeval
         private static ServiceProvider _serviceProvider;
 
         [STAThread]
-        public static void Main()
+        public static int Main()
         {
             var serviceCollection = new ServiceCollection();
             ConfigureServices(serviceCollection);
             _serviceProvider = serviceCollection.BuildServiceProvider();
             var app = _serviceProvider.GetRequiredService<App>();
             app.InitializeComponent();
-            _ = app.Run();
+            return app.Run();
         }
 
         private static void ConfigureServices(IServiceCollection services)
