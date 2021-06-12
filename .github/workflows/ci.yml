@@ -8,16 +8,11 @@ jobs:
     build:
         runs-on: windows-latest
 
-        env:
-            Solution_Name: ./Pixeval.sln
-            Project_Path: ./src/Pixeval/Pixeval.csproj
-            Configuration: Release
-
         steps:
             - name: Checkout
               uses: actions/checkout@v2
               with:
-                  fetch-depth: 0
+                  fetch-depth: 1
 
             - name: Cache nuget packages
               id: cache-nuget
@@ -29,13 +24,13 @@ jobs:
                       ${{ runner.os }}-nuget-
 
             - name: Restore the application
-              run: dotnet restore $env:Solution_Name
+              run: dotnet restore .\Pixeval\Pixeval.csproj
 
             - name: Build the application
-              run: dotnet build $env:Project_Path -c $env:Configuration
+              run: dotnet build .\Pixeval\Pixeval.csproj -c Release --no-restore
 
             - name: Publish the application
-              run: dotnet publish $env:Project_Path -p:OutDir="$PWD/publish" -c $env:Configuration
+              run: dotnet publish .\Pixeval\Pixeval.csproj -p:OutDir="$PWD/publish" -c Release --no-build --no-restore
 
             - name: Upload a Build Artifact
               uses: actions/upload-artifact@v2
