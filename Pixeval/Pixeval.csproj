@@ -39,8 +39,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="View\" />
-    <Folder Include="ViewModel\" />
+    <Folder Include="Views\" />
+    <Folder Include="ViewModels\" />
+    <Folder Include="Models\" />
   </ItemGroup>
 
 </Project>
