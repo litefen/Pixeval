@@ -32,10 +32,10 @@ jobs:
               run: dotnet restore .\Pixeval\Pixeval.csproj
 
             - name: Build the application
-              run: dotnet build .\Pixeval\Pixeval.csproj -c Release --no-restore
+              run: dotnet build .\Pixeval\Pixeval.csproj -c Release
 
             - name: Publish the application
-              run: dotnet publish .\Pixeval\Pixeval.csproj -p:OutDir="$PWD/publish" -c Release -f net6.0-windows10.0.18362.0 --no-build --no-restore
+              run: dotnet publish .\Pixeval\Pixeval.csproj -p:OutDir="$PWD/publish" -c Release
 
             - name: Upload a Build Artifact
               uses: actions/upload-artifact@v2
