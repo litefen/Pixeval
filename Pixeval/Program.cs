@@ -24,8 +24,8 @@ namespace Pixeval
 
         private static void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton<MainWindow>();
             services.AddSingleton<App>();
+            services.AddSingleton<MainWindow>();
         }
     }
 }

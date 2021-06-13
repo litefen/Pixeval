@@ -3,26 +3,33 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:mui="http://schemas.modernwpf.com/2019"
+        xmlns:ui="http://schemas.modernwpf.com/2019"
         xmlns:local="clr-namespace:Pixeval"
         mc:Ignorable="d"
-        Title="Pixeval" 
-        WindowStartupLocation="CenterScreen"
-        mui:ThemeManager.IsThemeAware="True"
-        mui:WindowHelper.UseModernWindowStyle="True"
-        mui:TitleBar.IsBackButtonVisible="True"
+        Title="Pixeval"
+        ui:WindowHelper.UseModernWindowStyle="True"
+        ui:TitleBar.IsBackButtonVisible="True"
         Height="900" Width="1280">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*"></ColumnDefinition>
-            <ColumnDefinition Width="6*"></ColumnDefinition>
-        </Grid.ColumnDefinitions>
-        <StackPanel Grid.Column="0" Orientation="Vertical">
-            <mui:PersonPicture></mui:PersonPicture>
-            <mui:ListView>
+        <Border BorderBrush="Blue" BorderThickness="2">
+            <ui:SplitView IsPaneOpen="True"
+                          DisplayMode="CompactOverlay">
+                <ui:SplitView.Pane>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <ui:PersonPicture Grid.Row="0" Initials="SB"></ui:PersonPicture>
+                        <ui:ListView Grid.Row="1">
 
-            </mui:ListView>
-        </StackPanel>
-        <StackPanel Grid.Column="1"></StackPanel>
+                        </ui:ListView>
+                    </Grid>
+                </ui:SplitView.Pane>
+                <ui:SplitView.Content>
+                    <Grid></Grid>
+                </ui:SplitView.Content>
+            </ui:SplitView>
+        </Border>
     </Grid>
 </Window>
